@@ -7,7 +7,6 @@
 int _printf(const char *format, ...)
 {
 	int i, j, count = 0;
-	char c, *s;
 	va_list args;
 
 	va_start(args, format);
@@ -18,13 +17,13 @@ int _printf(const char *format, ...)
 			i++;
 			if (format[i] == 'c')
 			{
-				c = va_arg(args, int);
+				char c = va_arg(args, int);
 				write(1, &c, 1);
 				count++;
 			}
 			else if (format[i] == 's')
 			{
-				*s = va_arg(args, char *);
+				char *s = va_arg(args, char*);
 				for (j = 0; s[j] != '\0'; j++)
 				{
 					write(1, &s[j], 1);
