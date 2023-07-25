@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 's')
 			{
-				char *s = va_arg(args, char*);
+				char *s = va_arg(args, char *);
 				for (j = 0; s[j] != '\0'; j++)
 				{
 					write(1, &s[j], 1);
