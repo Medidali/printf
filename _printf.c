@@ -8,10 +8,14 @@
 
 int _printf(const char *format, ...)
 {
+
+int count = 0;
+int i, j;
+
 va_list args;
 va_start(args, format);
-int count = 0;
-for (int i = 0; format[i] != '\0'; i++)
+
+for (i = 0; format[i] != '\0'; i++)
 {
 if (format[i] == '%')
 {
@@ -25,7 +29,7 @@ count++;
 else if (format[i] == 's')
 {
 char *s = va_arg(args, char*);
-for (int j = 0; s[j] != '\0'; j++)
+for (j = 0; s[j] != '\0'; j++)
 {
 write(1, &s[j], 1);
 count++;
