@@ -24,11 +24,19 @@ int _printf(const char *format, ...)
 			else if (format[i] == 's')
 			{
 				char *s = va_arg(args, char *);
+				if (s == NULL)
+				  {
+				    write(1, "(null)", 1);
+				    count++;
+				  }
+				else
+				  {
 				for (j = 0; s[j] != '\0'; j++)
 				{
 					write(1, &s[j], 1);
 					count++;
 				}
+				  }
 			}
 			else if (format[i] == '%')
 			{
