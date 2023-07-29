@@ -18,12 +18,14 @@ int _printf(const char *format, ...)
 			if (format[i] == 'c')
 			{
 				char c = va_arg(args, int);
+
 				write(1, &c, 1);
 				count++;
 			}
 			else if (format[i] == 's')
 			{
 				char *s = va_arg(args, char *);
+
 				for (j = 0; s[j] != '\0'; j++)
 				{
 					write(1, &s[j], 1);
@@ -35,17 +37,17 @@ int _printf(const char *format, ...)
 				write(1, "%", 1);
 				count++;
 			}
-		else
-		{
-		}
+			else
+			{
+			}
 		}
 		else
 		{
 			write(1, &format[i], 1);
 			count++;
 		}
-		}
-		va_end(args);
-		return (count);
+	}
+	va_end(args);
+	return (count);
 }
 
